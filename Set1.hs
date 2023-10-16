@@ -75,7 +75,7 @@ eeny x = if even x
 -- "mellon".
 
 checkPassword :: String -> String
-checkPassword password = if password == "swordfish"
+checkPassword password = if password == "swordfish" || password == "mellon"
                          then "You're in."
                          else "ACCESS DENIED!"
 
