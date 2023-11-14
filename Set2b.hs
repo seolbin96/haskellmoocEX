@@ -107,7 +107,7 @@ countdown :: Integer -> String
 countdown n = "Ready!" ++ countdownHelper n ++ " Liftoff!"
 
 countdownHelper :: Integer -> String
-countdownHelper 0 = ""  -- Base case: when the countdown reaches 0, return an empty string
+countdownHelper 0 = ""
 countdownHelper n = " " ++ show n ++ "..." ++ countdownHelper (n - 1)
 
 ------------------------------------------------------------------------------
@@ -126,7 +126,13 @@ countdownHelper n = " " ++ show n ++ "..." ++ countdownHelper (n - 1)
 -- Hint: remember the mod function!
 
 smallestDivisor :: Integer -> Integer
-smallestDivisor = todo
+smallestDivisor n = findDivisor n 2
+
+findDivisor :: Integer -> Integer -> Integer
+findDivisor n testDivisor
+  | testDivisor^2 > n         = n
+  | n `mod` testDivisor == 0  = testDivisor
+  | otherwise                 = findDivisor n (testDivisor + 1)
 
 ------------------------------------------------------------------------------
 -- Ex 7: implement a function isPrime that checks if the given number
