@@ -158,4 +158,6 @@ isPrime n
 --   biggestPrimeAtMost 10 ==> 7
 
 biggestPrimeAtMost :: Integer -> Integer
-biggestPrimeAtMost = todo
+biggestPrimeAtMost n
+  | n < 2     = error "에러"
+  | otherwise = maximum (filter isPrime [2..n])
