@@ -110,7 +110,9 @@ palindromify s
 --   safeDiv 4 0  ==> Nothing
 
 safeDiv :: Integer -> Integer -> Maybe Integer
-safeDiv x y = todo
+safeDiv x y
+  | y /= 0    = Just (x `div` y)
+  | otherwise = Nothing
 
 ------------------------------------------------------------------------------
 -- Ex 8: implement a function greet that greets a person given a first
