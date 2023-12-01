@@ -57,7 +57,9 @@ mapMaybe f (Just x) = Just (f x)
 --   mapMaybe2 div (Just 6) Nothing   ==>  Nothing
 
 mapMaybe2 :: (a -> b -> c) -> Maybe a -> Maybe b -> Maybe c
-mapMaybe2 f x y = todo
+mapMaybe2 f (Just a) (Just b) = Just (f a b)
+mapMaybe2 f _ _               = Nothing
+
 
 ------------------------------------------------------------------------------
 -- Ex 4: define the functions firstHalf and palindrome so that
