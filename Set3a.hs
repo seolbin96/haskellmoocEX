@@ -212,6 +212,10 @@ joinToLength len xs = [concat [a, b] | a <- xs, b <- xs, length (a ++ b) == len]
 --   [] +|+ [True]        ==> [True]
 --   [] +|+ []            ==> []
 
+(+|+) :: [a] -> [b] -> [a]
+(+|+) (x:_) _ = [x]
+(+|+) [] (y:_) = []
+(+|+) _ _     = []
 
 ------------------------------------------------------------------------------
 -- Ex 11: remember the lectureParticipants example from Lecture 2? We
