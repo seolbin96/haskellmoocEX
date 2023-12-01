@@ -50,7 +50,14 @@ buildList start count end = start : buildList start (count - 1) end
 -- Ps. you'll probably need a recursive helper function
 
 sums :: Int -> [Int]
-sums i = todo
+sums i = sumsHelper 1 i 0
+
+sumsHelper :: Int -> Int -> Int -> [Int]
+sumsHelper current i acc
+  | current > i = []
+  | otherwise   = acc' : sumsHelper (current + 1) i acc'
+  where
+    acc' = acc + current
 
 ------------------------------------------------------------------------------
 -- Ex 3: define a function mylast that returns the last value of the
