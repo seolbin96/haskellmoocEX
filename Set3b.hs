@@ -128,7 +128,11 @@ sorted (x:y:xs)
 -- Use pattern matching and recursion (and the list constructors : and [])
 
 sumsOf :: [Int] -> [Int]
-sumsOf xs = todo
+sumsOf xs = sumsOfHelper xs 0
+
+sumsOfHelper :: [Int] -> Int -> [Int]
+sumsOfHelper [] _ = []
+sumsOfHelper (x:xs) acc = (x + acc) : sumsOfHelper xs (x + acc)
 
 ------------------------------------------------------------------------------
 -- Ex 7: implement the function merge that merges two sorted lists of
