@@ -232,7 +232,7 @@ joinToLength len xs = [concat [a, b] | a <- xs, b <- xs, length (a ++ b) == len]
 --   sumRights [Left "bad!", Left "missing"]         ==>  0
 
 sumRights :: [Either a Int] -> Int
-sumRights = todo
+sumRights = sum . map (either (const 0) id)
 
 ------------------------------------------------------------------------------
 -- Ex 12: recall the binary function composition operation
